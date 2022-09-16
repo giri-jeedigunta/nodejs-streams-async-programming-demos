@@ -1,4 +1,9 @@
-//Blocking
+// #1 Blocking JS Example
+// #2 Non-Blocking JS Example  with Async / Await
+// #3 Read stream example
+
+// #1 Blocking JS
+
 /*
 import { readFileSync } from 'fs';
 
@@ -10,31 +15,28 @@ const whoAreTheJedi = () => {
 }
 
 whoAreTheJedi();
-console.log("I'm totally blocked... Boooo !!!!");
+console.log("I'm totally BLOCKED... Boooo !!!!");
 */
 
 
 
-
-
-/*
-//Non-Blocking
-import { readFile } from 'fs';
-import { promisify } from 'util';
-
-const readFilePromise = promisify(readFile);
+// #2 Non-Blocking JS
+import { readFile } from 'fs.promises';
 
 const whoAreTheJedi = async () => {
 
-  const files = await readFilePromise("jedi.md", "utf8");
-  console.log(files);
+  const fileContent = await readFile("jedi.md", "utf8");
+  console.log(fileContent);
 
 }
 whoAreTheJedi();
-console.log("I'm not blocked Yaaaay !!!!");
-*/
+console.log("I'm NOT blocked Yaaaay !!!!");
 
 
+
+
+
+// #3 Read stream
 /*
 import { createReadStream } from 'fs';
 const readable = createReadStream("jedi.md", { highWaterMark: 20 });
